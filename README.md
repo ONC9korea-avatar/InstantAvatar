@@ -1,6 +1,8 @@
 # InstantAvatar
 [[Project Page]](https://tijiang13.github.io/InstantAvatar/)
 
+This fork is modified version of InstantAvatar to be run smoothly on runpod (specifically, its "pytorch:2.0.1-py3.10-cuda11.8.0-devel" template)
+
 ## Install the dependencies
 ```
 python -m venv env

@@ -1,4 +1,6 @@
 outputs/
 __pycache__/
 *.swp
+
 kaolin/
+.venv/

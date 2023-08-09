@@ -5,8 +5,8 @@ This fork is modified version of InstantAvatar to be run on runpod's `pytorch:2.
 
 ## Install the dependencies
 ```
-python -m venv env
-source env/bin/activate
+python -m venv .venv
+source .venv/bin/activate
 bash install.sh
 ```
 

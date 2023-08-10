@@ -9,7 +9,7 @@ import numpy as np
 from . import pretrained_networks as pn
 import torch.nn
 
-from . import *
+import lpips
 
 
 def spatial_average(in_tens, keepdim=True):
@@ -121,7 +121,7 @@ class LPIPS(nn.Module):
         feats0, feats1, diffs = {}, {}, {}
 
         for kk in range(self.L):
-            feats0[kk], feats1[kk] = normalize_tensor(outs0[kk]), normalize_tensor(outs1[kk])
+            feats0[kk], feats1[kk] = lpips.normalize_tensor(outs0[kk]), lpips.normalize_tensor(outs1[kk])
             diffs[kk] = (feats0[kk]-feats1[kk])**2
 
         if(self.lpips):

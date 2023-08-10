@@ -3,6 +3,7 @@ __pycache__/
 *.swp
 data/
 data/custom/
+confs/
 
 kaolin/
 .venv/

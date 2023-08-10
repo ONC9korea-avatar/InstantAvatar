@@ -1,6 +1,6 @@
-# assume you use python version Python 3.10.6, cuda 11.8
+# assume you use python version Python 3.9
 pip install aitviewer==1.9.0
-pip install torch==1.13.1+cu118 torchvision==0.14.1 --extra-index-url https://download.pytorch.org/whl/cu118
+pip install torch==1.13.1 torchvision==0.14.1 --extra-index-url https://download.pytorch.org/whl/cu118
 pip install fvcore iopath
 pip install git+https://github.com/NVlabs/tiny-cuda-nn/@v1.6#subdirectory=bindings/torch
 pip install pytorch-lightning==1.5.7
@@ -17,3 +17,12 @@ cd kaolin
 pip install -r tools/build_requirements.txt -r tools/viz_requirements.txt -r tools/requirements.txt
 python setup.py develop
 cd ..
+
+# install segment-anything
+pip install git+https://github.com/facebookresearch/segment-anything.git
+
+# install ROMP
+pip install simple_romp==1.1.3
+
+# install pytorch3d
+pip install "git+https://github.com/facebookresearch/pytorch3d.git"

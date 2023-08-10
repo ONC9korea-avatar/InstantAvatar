@@ -117,7 +117,7 @@ def main(opt):
     imgs = [cv2.cvtColor(img, cv2.COLOR_BGRA2RGB) for img in imgs]
 
     fps = 30
-    imageio.mimsave(f"{folder}/{animation}.gif", imgs, duration=1000/fps)
+    imageio.mimsave(f"{folder}/{animation}.gif", imgs, loop=0, duration=1000/fps)
 
 if __name__ == "__main__":
     main()

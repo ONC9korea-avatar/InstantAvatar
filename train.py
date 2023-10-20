@@ -6,6 +6,8 @@ from pytorch_lightning.loggers import TensorBoardLogger
 import hydra
 from omegaconf import OmegaConf
 
+import time
+
 
 @hydra.main(config_path="./confs", config_name="SNARF_NGP")
 def main(opt):
@@ -46,4 +48,10 @@ def main(opt):
 
 
 if __name__ == "__main__":
+    train_start_time = time.time()
     main()
+    train_end_time = time.time()
+
+    print('\n\n' + '=' * 50)
+    print('train time: %.3f s' % (train_end_time - train_start_time))
+    print('=' * 50 + '\n\n')

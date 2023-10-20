@@ -107,12 +107,20 @@ def main(opt):
 
     with torch.inference_mode():
         imgs = []
-        for i, batch in tqdm(enumerate(dataloader)):
+        dataloader_tqdm = tqdm(enumerate(dataloader), total=len(dataloader))
+        for i, batch in dataloader_tqdm:
             batch = {k: v.cuda() for k, v in batch.items()}
             rgb, _, alpha, _ = model.render_image_fast(batch, (dataset.H, dataset.W))
             img = torch.cat([rgb, alpha[..., None]], dim=-1)
             imgs.append(img)
             cv2.imwrite("{}/{}.png".format(folder, i), (img.cpu().numpy() * 255).astype(np.uint8)[0])
+
+    print('\n\n' + '=' * 50)
+    elapsed = dataloader_tqdm.format_dict['elapsed']
+    total = dataloader_tqdm.format_dict['total']
+    print('average rendering speed: %.3f fps' % (total / elapsed))
+    print('=' * 50 + '\n\n')
+
     imgs = [(img.cpu().numpy() * 255).astype(np.uint8)[0] for img in imgs]
     imgs = [cv2.cvtColor(img, cv2.COLOR_BGRA2RGB) for img in imgs]
 

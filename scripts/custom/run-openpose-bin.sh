@@ -12,7 +12,7 @@ if [ ! -d "$1" ]; then
 fi
 
 # Set the path to your OpenPose installation
-OPENPOSE_PATH="/workspace/openpose/"
+OPENPOSE_PATH="/workspace/RVH_Mesh_Registration/openpose/"
 
 # Set the path to the absoulte folder containing the images
 IMAGE_FOLDER=$1
